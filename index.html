@@ -16,7 +16,7 @@
             height: 100vh;
         }
 
-        /* Container for Text */
+        /* Container for Content */
         .container {
             position: relative;
             height: 100vh;
@@ -28,23 +28,25 @@
             z-index: 2;
         }
 
-        /* Main Headline */
         h1 {
             font-size: 3rem;
-            margin: 0;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
             animation: pulse 3s infinite;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         }
 
-        /* Subhead Text */
         h2 {
             font-size: 1.5rem;
-            margin: 10px 0;
+            margin-bottom: 30px;
         }
 
-        /* Button Styling */
+        /* Buttons */
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
         .button {
-            margin-top: 20px;
             padding: 15px 30px;
             font-size: 1.2rem;
             background-color: #ff6b6b;
@@ -61,40 +63,35 @@
             box-shadow: 0 8px 20px rgba(255, 107, 107, 0.8);
         }
 
-        /* Hidden Message Styling */
+        /* Moving No Button */
+        .no {
+            position: relative;
+        }
+
+        .no:hover {
+            position: absolute;
+            top: calc(50% - 20px);
+            left: calc(50% - 20px);
+            transform: translate(
+                calc(150px - 50vw),
+                calc(-150px + 50vh)
+            );
+        }
+
+        /* Surprise Message */
         .hidden-message {
             display: none;
-            font-size: 1.5rem;
-            margin-top: 20px;
-            opacity: 0;
+            font-size: 1.8rem;
+            margin-top: 30px;
             animation: fadeIn 2s forwards;
         }
 
-        /* Final Surprise */
-        .surprise {
-            display: none;
-            font-size: 2rem;
-            margin-top: 30px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 3s forwards;
-        }
-
-        /* Keyframes for Animation */
         @keyframes fadeIn {
             from {
                 opacity: 0;
             }
             to {
                 opacity: 1;
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
             }
         }
 
@@ -167,21 +164,19 @@
             .hidden-message {
                 font-size: 1.2rem;
             }
-
-            .surprise {
-                font-size: 1.5rem;
-            }
         }
     </style>
 </head>
 <body>
     <div class="hearts"></div>
     <div class="container">
-        <h1>Hi, [Crush's Name]! 💖</h1>
-        <h2>You make my heart dance! 💕</h2>
-        <button class="button" onclick="revealSurprise()">Click Me for a Surprise!</button>
-        <div class="hidden-message">You’re the most beautiful part of my day! ❤️</div>
-        <div class="surprise">You’re my everything. Thank you for being you! 🌹</div>
+        <h1>Will you be my favorite person forever? 💖</h1>
+        <h2>Please choose wisely! 😏</h2>
+        <div class="buttons">
+            <button class="button yes" onclick="showSurprise()">Yes</button>
+            <button class="button no">No</button>
+        </div>
+        <div class="hidden-message">You made the right choice! ❤️ You’re the best thing that’s ever happened to me! 🌹</div>
     </div>
 
     <script>
@@ -199,17 +194,14 @@
             }
         }
 
-        // Reveal surprise message
-        function revealSurprise() {
+        // Show the surprise message when "Yes" is clicked
+        function showSurprise() {
             const message = document.querySelector('.hidden-message');
-            const surprise = document.querySelector('.surprise');
             message.style.display = 'block';
-            surprise.style.display = 'block';
         }
 
         createHearts();
     </script>
 </body>
 </html>
-
 
