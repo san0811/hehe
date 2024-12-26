@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> ❤️</title>
+    <title>For You ❤️</title>
     <style>
+        /* General Styling */
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
             overflow: hidden;
-            text-align: center;
             color: #fff;
+            text-align: center;
+            height: 100vh;
         }
 
+        /* Container for Text */
         .container {
             position: relative;
             height: 100vh;
@@ -21,28 +24,32 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 20px;
             z-index: 2;
         }
 
+        /* Main Headline */
         h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             animation: pulse 3s infinite;
         }
 
+        /* Subhead Text */
         h2 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin: 10px 0;
-            animation: fadeIn 3s ease-in-out;
         }
 
+        /* Button Styling */
         .button {
             margin-top: 20px;
             padding: 15px 30px;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             background-color: #ff6b6b;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             color: #fff;
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(255, 107, 107, 0.5);
@@ -54,22 +61,25 @@
             box-shadow: 0 8px 20px rgba(255, 107, 107, 0.8);
         }
 
+        /* Hidden Message Styling */
         .hidden-message {
             display: none;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-top: 20px;
             opacity: 0;
             animation: fadeIn 2s forwards;
         }
 
+        /* Final Surprise */
         .surprise {
             display: none;
-            font-size: 3rem;
+            font-size: 2rem;
             margin-top: 30px;
-            color: #fff;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 3s forwards;
         }
 
+        /* Keyframes for Animation */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -88,6 +98,7 @@
             }
         }
 
+        /* Floating Hearts */
         .hearts {
             position: absolute;
             top: 0;
@@ -100,19 +111,19 @@
 
         .heart {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             background-color: rgba(255, 255, 255, 0.8);
             transform: rotate(45deg);
-            animation: floatUp 7s linear infinite;
+            animation: floatUp 6s linear infinite;
         }
 
         .heart::before,
         .heart::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 50%;
         }
@@ -137,33 +148,58 @@
                 opacity: 0;
             }
         }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            .button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+
+            .hidden-message {
+                font-size: 1.2rem;
+            }
+
+            .surprise {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="hearts"></div>
     <div class="container">
-        <h1>Hi [Crush's Name]! 💖</h1>
-        <h2>You make my heart skip a beat! 💕</h2>
+        <h1>Hi, [Crush's Name]! 💖</h1>
+        <h2>You make my heart dance! 💕</h2>
         <button class="button" onclick="revealSurprise()">Click Me for a Surprise!</button>
-        <div class="hidden-message">You're the most amazing person I've ever met! ❤️</div>
-        <div class="surprise">You are loved more than words can express! 🌹</div>
+        <div class="hidden-message">You’re the most beautiful part of my day! ❤️</div>
+        <div class="surprise">You’re my everything. Thank you for being you! 🌹</div>
     </div>
 
     <script>
         // Create floating hearts
         function createHearts() {
             const heartsContainer = document.querySelector('.hearts');
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 40; i++) {
                 const heart = document.createElement('div');
                 heart.classList.add('heart');
                 heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+                heart.style.animationDuration = Math.random() * 2 + 5 + 's';
                 heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.width = heart.style.height = Math.random() * 20 + 10 + 'px';
                 heartsContainer.appendChild(heart);
             }
         }
 
-        // Reveal the surprise message
+        // Reveal surprise message
         function revealSurprise() {
             const message = document.querySelector('.hidden-message');
             const surprise = document.querySelector('.surprise');
@@ -175,4 +211,5 @@
     </script>
 </body>
 </html>
+
 
